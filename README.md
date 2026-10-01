@@ -1,10 +1,41 @@
-# Voice-Only Omarchy Linux A.I. Workstation — Setup & Use Report
+# Voice-Only MacBook Air (2013) on Omarchy Linux — Setup & Use Report
+
+## Contents
+
+1. Overview
+    1. [Executive summary](#executive-summary)
+    2. [Requirements and constraints](#requirements-and-constraints)
+    3. [Architecture overview](#architecture-overview)
+2. Setup phases
+    1. [Phase 1 — Install Omarchy and fix Wi-Fi](#phase-1--install-omarchy-and-fix-wi-fi)
+    2. [Phase 2 — Remove keyboard dependencies](#phase-2--remove-keyboard-dependencies)
+    3. [Phase 3 — Low-vision display configuration](#phase-3--low-vision-display-configuration)
+    4. [Phase 4 — Voice control](#phase-4--voice-control)
+    5. [Phase 5 — Speech output and feedback](#phase-5--speech-output-and-feedback)
+    6. [Phase 6 — Applications](#phase-6--applications)
+    7. [Phase 7 — Security and remote administration](#phase-7--security-and-remote-administration)
+3. Security posture
+    1. [Security posture — threat model](#security-posture--threat-model)
+    2. [Physical, firmware and boot security](#physical-firmware-and-boot-security)
+    3. [Accounts, authentication and remote access](#accounts-authentication-and-remote-access)
+    4. [Network segmentation](#network-segmentation)
+    5. [Patching and vulnerability management](#patching-and-vulnerability-management)
+    6. [AI assistant and voice-channel security](#ai-assistant-and-voice-channel-security)
+    7. [Application hardening](#application-hardening)
+    8. [Logging, monitoring and backup integrity](#logging-monitoring-and-backup-integrity)
+    9. [Incident response](#incident-response)
+    10. [Further hardening (second assessment)](#further-hardening-second-assessment)
+    11. [Security baseline verification](#security-baseline-verification)
+4. Operation and handover
+    1. [Daily use guide](#daily-use-guide)
+    2. [Testing and acceptance checklist](#testing-and-acceptance-checklist)
+    3. [Risks, limitations and open items](#risks-limitations-and-open-items)
 
 ## Executive summary
 
 A 2013 MacBook Air (4 GB RAM) running Omarchy Linux can serve a user with roughly 50% vision loss who cannot use a keyboard or mouse. The design rests on three pillars: an always-listening voice command layer, a large-print high-contrast display, and spoken feedback for anything the user cannot read comfortably.
 
-The administrator does all setup and maintenance remotely over Tailscale. The user never types, clicks, or enters a password during normal use.
+The administrator (Jason) does all setup and maintenance remotely over Tailscale. The user never types, clicks, or enters a password during normal use.
 
 The hardest problems are not voice recognition. They are the places where Linux quietly expects a keyboard: the disk-encryption passphrase at boot, the lock screen, and push-to-talk dictation keys. Phase 2 removes each of these before any voice work begins.
 
@@ -20,7 +51,7 @@ Every requirement below must be met by voice alone, with large-print visuals and
 | Write, proofread, file documents | LibreOffice + dictation + AI proofreading | Saving to fixed folders by voice |
 | Browse the web | Chromium with large zoom | Allowed through the firewall |
 | Secure system | Encryption, firewall, auto-updates, no open ports | See Phase 7 |
-| Remote admin by admin | Tailscale + SSH | No port forwarding |
+| Remote admin by Jason | Tailscale + SSH | No port forwarding |
 
 Hardware limits shape every choice:
 
