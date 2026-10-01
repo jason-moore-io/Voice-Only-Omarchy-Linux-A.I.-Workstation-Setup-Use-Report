@@ -1,4 +1,4 @@
-# Voice-Only MacBook Air (2013) on Omarchy Linux — Setup & Use Report
+# Voice-Only Omarchy Linux A.I. Workstation — Setup & Use Report
 
 ## Contents
 
