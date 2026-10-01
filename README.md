@@ -1,5 +1,10 @@
 # Voice-Only Omarchy Linux A.I. Workstation — Setup & Use Report
 
+**Author:** Jason Moore
+**Status:** 🚧 In progress
+**Platform:** 
+**Data sources:** 
+
 ## Contents
 
 1. Overview
